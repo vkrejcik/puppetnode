@@ -1,5 +1,4 @@
 class puppetnode::agent(
-  $env,
   $server,
   $runinterval = '14400'
 ) {

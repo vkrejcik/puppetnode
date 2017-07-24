@@ -29,11 +29,11 @@ class puppetnode::master {
     before => Class['::puppet']
   }
 
-  file { '/etc/puppet':
-    ensure => link,
-    target => '/etc/puppetlabs/puppet',
-    before => Class['::puppet']
-  }
+#file { '/etc/puppet':
+#  ensure => link,
+#  target => '/etc/puppetlabs/puppet',
+#  before => Class['::puppet']
+#}
 
 
   class { '::puppet':

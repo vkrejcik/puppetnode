@@ -82,7 +82,14 @@ class puppetnode::master {
     require => Class['::puppet']
   }
 
-  package { ['ruby', 'ruby-dev', 'build-essential', 'sudo']:
+  unless defined(Package['sudo']) {
+    package { 'sudo':
+      ensure => 'latest',
+    }
+  }
+
+
+  package { ['ruby', 'ruby-dev', 'build-essential']:
     ensure => 'latest'
   }
 

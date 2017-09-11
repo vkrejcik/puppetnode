@@ -53,7 +53,7 @@ class puppetnode::master {
     server_jvm_extra_args       => '-Dfile.encoding=UTF-8',
   }
 
-  file { '/etc/puppet/fileserver.conf':
+  file { '/etc/puppetlabs/puppet/fileserver.conf':
     ensure  => 'file',
     content => template("puppetnode/fileserver.conf.erb"),
     require => Class['::puppet']

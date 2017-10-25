@@ -1,4 +1,7 @@
-class puppetnode::master {
+class puppetnode::master(
+  $server_jvm_max_heap_size = '4096m',
+  $server_jvm_min_heap_size = '2048m'
+  ) {
 
   #install collection repo
   exec { 'install-collection':

@@ -18,9 +18,10 @@ class puppetnode::agent(
     enable  => true,
     require => Package['puppet']
   }
-
-  apt::key { 'puppetlabs':
-    id      => '7F438280EF8D349F',
-    server  => 'pgp.mit.edu',
-  }
+  
+  # it look like we dont need this
+  #apt::key { 'puppetlabs':
+  #  id      => '7F438280EF8D349F',
+  #  server  => 'pgp.mit.edu',
+  #}
 }

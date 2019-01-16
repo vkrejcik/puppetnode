@@ -4,16 +4,16 @@ class puppetnode::master(
   ) {
 
   if $facts['operatingsystemmajrelease'] == '8' {
-    $puppet_package_version = '1.10.1-1jessie',
+    $puppet_package_version = '1.10.1-1jessie'
     $puppet_collections     = 'jessie'
   }
   elsif $facts['operatingsystemmajrelease'] == '9' {
-    $puppet_package_version = 'puppet5-release-stretch',
+    $puppet_package_version = 'puppet5-release-stretch'
     $puppet_collections     = 'stretch'
   }
   else {
     # default - can be anything
-    $puppet_package_version = '1.10.1-1jessie',
+    $puppet_package_version = '1.10.1-1jessie'
     $puppet_collections     = 'jessie'
   }
 

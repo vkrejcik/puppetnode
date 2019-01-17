@@ -21,10 +21,11 @@ class puppetnode::master(
   exec { 'install-collection':
     command => "wget https://apt.puppetlabs.com/puppetlabs-release-pc1-${puppet_collections}.deb;dpkg -i puppetlabs-release-pc1-${$puppet_collections}.deb",
     user    => 'root',
-    path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-    creates => '/tmp/puppetlabs-release-pc1-jessie.deb',
+    path    => '/usr/bin:/usr/sbin:/bin:/usr/local/bin:/sbin',
+    creates => "/tmp/puppetlabs-release-pc1-${$puppet_collections}.deb",
     cwd     => '/tmp/',
-    require => Package['wget', 'ca-certificates']
+    require => Package['wget', 'ca-certificates'],
+    before  => Class['puppet']
   }
 
 # file { '/var/lib/puppet':
